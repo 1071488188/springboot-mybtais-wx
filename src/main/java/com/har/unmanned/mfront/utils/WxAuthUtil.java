@@ -1,7 +1,6 @@
 package com.har.unmanned.mfront.utils;
 
 import com.alibaba.fastjson.JSONObject;
-
 import com.har.unmanned.mfront.config.ErrorCode;
 import com.har.unmanned.mfront.exception.ApiBizException;
 import com.har.unmanned.mfront.model.ShopWechat;

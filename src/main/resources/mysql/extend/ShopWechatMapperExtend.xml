@@ -13,7 +13,6 @@
     <result column="sex" property="sex" jdbcType="INTEGER" />
     <result column="ip" property="ip" jdbcType="VARCHAR" />
   </resultMap>
-
   <sql id="Base_Column_List" >
     id, openid, `name`, focus_time, `location`, longitude, latitude, headimg_url, sex, 
     ip

@@ -1,6 +1,5 @@
 package com.har.unmanned.mfront.utils;
 
-import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -66,5 +65,15 @@ public class ContextHolderUtils {
 			}
 		}
 		return flag;
+	}
+
+	/**
+	 * 获取ip地址
+	 * @return
+	 */
+	public static String getIp() {
+		HttpServletRequest request =  getRequest();
+		return request.getHeader("x-forwarded-for") == null ? request.getRemoteAddr() : request
+				.getHeader("x-forwarded-for");
 	}
 }

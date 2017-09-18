@@ -2,9 +2,9 @@ package com.har.unmanned.mfront.dao;
 
 import com.har.unmanned.mfront.model.ShopWechat;
 import com.har.unmanned.mfront.model.ShopWechatExample;
-import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ShopWechatMapper {
     int countByExample(ShopWechatExample example);

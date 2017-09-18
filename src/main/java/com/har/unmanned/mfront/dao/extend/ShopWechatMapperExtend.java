@@ -3,8 +3,6 @@ package com.har.unmanned.mfront.dao.extend;
 import com.har.unmanned.mfront.model.ShopWechat;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
-
 /**
  * 微信用户扩展mapper
  */

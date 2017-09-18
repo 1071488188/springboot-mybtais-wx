@@ -1,27 +1,29 @@
 server:
-  port: 8088
-  context-path: /har-unmanned-mfront
-#jwt加密秘钥
+  port: 8082
+  context-path: /har-unmanned-mfront/api/v1
+#绯荤粺鐩稿叧甯搁噺
 client:
   client-id: service-account-1
-  client-secret: service-account-1-secret
+  client-secret: service-account-1-secret #jwt鍔犲瘑绉橀挜
+  APPID: 10002 #鏃ュ織绯荤粺appid
 spring:
-  datasource:
+ profiles:
+    include: appConfig,wx
+ datasource:
     url: jdbc:mysql://192.168.3.211:3306/har_shop
     username: harshop
     password: harshop
-  redis:
-    host: 119.6.202.169
-    port: 30049
-    password: rBIH8$8s
-    timeout: 2000 # 连接超时时间（毫秒）
-    max-idle: 300 # 连接池中的最大空闲连接
-    max-active: 20 # 连接池最大连接数（使用负值表示没有限制）
-  profiles:
-    include: appConfig,wx
+ redis:
+  host: 119.6.202.169
+  port: 30049
+  password: rBIH8$8s
+  timeout: 2000 #瓒呮椂鏃堕棿
+  pool:
+    max-active: 20 #鏈�澶ф椿璺冩暟
+    max-idle: 300 #鏈�澶х┖闂叉暟
 mybatis:
   type-aliases-package: com.har.unmanned.mfront.model
-  mapper-locations: classpath*:/mysql/*.xml
+  mapper-locations: classpath*:/mysql/*.xml,classpath*:/mysql/extend/*.xml
 logging:
   level:
     com.har.unmanned.mfront: debug

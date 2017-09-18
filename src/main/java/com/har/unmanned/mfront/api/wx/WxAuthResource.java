@@ -1,7 +1,6 @@
 package com.har.unmanned.mfront.api.wx;
 
 import com.alibaba.fastjson.JSONObject;
-
 import com.har.unmanned.mfront.api.ApiBaseController;
 import com.har.unmanned.mfront.config.Constants;
 import com.har.unmanned.mfront.config.ErrorCode;
@@ -23,7 +22,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URLDecoder;
-import java.net.URLEncoder;
 
 
 /**
@@ -32,7 +30,7 @@ import java.net.URLEncoder;
  */
 @Slf4j
 @RestController
-@RequestMapping(value = "/api/v1/wxAuth", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+@RequestMapping(value = "/wxAuth", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
 public class WxAuthResource extends ApiBaseController {
     @Autowired
     private RedisServiceImpl service;
@@ -105,7 +103,7 @@ public class WxAuthResource extends ApiBaseController {
                 }
             }
             log.info("=====微信回调完成=====");
-            redirectUrl = wxAuthUtil.host.concat(state);
+            redirectUrl =state;
             log.info("目标地址：" + redirectUrl);
         } catch (Exception e) {
             e.printStackTrace();

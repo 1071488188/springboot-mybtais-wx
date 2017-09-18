@@ -1,26 +1,16 @@
 package com.har.unmanned.mfront.utils;
 
-import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Maps;
-
-import com.har.unmanned.mfront.config.Constants;
 import com.har.unmanned.mfront.config.ErrorCode;
 import com.har.unmanned.mfront.exception.ApiBizException;
 import com.har.unmanned.mfront.model.ShopWechat;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.codec.binary.Base64;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 
-import java.text.MessageFormat;
 import java.util.Date;
 import java.util.Map;
 
@@ -41,9 +31,10 @@ public class JwtUtil {
         try {
             String openid = wxUser.getOpenid();
                 // 用户相关权限校验
+                Date expiresDate = DateTime.now().plusSeconds(1200).toDate();//过期时间
                 Map<String, Object> claims = Maps.newHashMap();
                 claims.put("openId", openid);
-                claims.put("exp", 1200);
+                claims.put("exp", expiresDate);
                 // TODO 将data转换成jwt
                 jwt = create(claims);
                 log.debug("{}, {}", claims, jwt);
