@@ -14,7 +14,7 @@ spring:
     username: harshop
     password: harshop
  redis:
-  host: 119.6.202.169
+  host:
   port: 30049
   password: rBIH8$8s
   timeout: 2000 #超时时间
